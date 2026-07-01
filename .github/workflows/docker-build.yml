@@ -1,0 +1,30 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches: [ main ]
+
+env:
+  DOCKER_IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/fastapi-simple
+
+jobs:
+  build-and-push:
+    name: Build and Push to Docker Hub
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      # TODO: Add step to log in to Docker Hub
+      # Hint: Use docker/login-action@v3
+      # Needs: username and password from secrets
+      - name: Login to Docker Hub
+        uses: Use docker/login-action@v3
+        with:
+          username: ${{secrets.DOCKER_USERNAME}}
+          password: ${{secrets.DOCKERHUB_TOKEN}}
+
+      # TODO: Add step to build and push Docker image
+      # Hint: Use docker/build-push-action@v5
+      # Needs: context, push: true, and tags
