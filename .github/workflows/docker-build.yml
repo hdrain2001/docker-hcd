@@ -29,10 +29,9 @@ jobs:
       # Hint: Use docker/build-push-action@v5
       # Needs: context, push: true, and tags
 
-      # 
-      # - name: Build and push Docker image
-      #   uses: docker/build-push-action@v5
-      #   with:
-      #     context: .
-      #     push: true
-      #     tags: ${{ secrets.DOCKERHUB_USERNAME }}:latest #issues
+      - name: Build and Push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ env.DOCKER_IMAGE_NAME }}:latest
