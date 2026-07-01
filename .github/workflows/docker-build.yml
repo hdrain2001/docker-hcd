@@ -28,3 +28,9 @@ jobs:
       # TODO: Add step to build and push Docker image
       # Hint: Use docker/build-push-action@v5
       # Needs: context, push: true, and tags
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}:latest
