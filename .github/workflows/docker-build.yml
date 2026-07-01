@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 env:
-  DOCKER_IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/fastapi-simple
+  DOCKER_IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/fastapi-simple
 
 jobs:
   build-and-push:
